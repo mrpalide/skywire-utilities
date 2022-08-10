@@ -26,10 +26,12 @@ const (
 
 // LocationData represents a geolocation point.
 type LocationData struct {
-	Lat     float64 `json:"lat"`
-	Lon     float64 `json:"lon"`
-	Country string  `json:"country,omitempty"`
-	Region  string  `json:"region,omitempty"`
+	ID        uint    `json:"-" gorm:"primarykey"`
+	ServiceID uint    `json:"-"`
+	Lat       float64 `json:"lat"`
+	Lon       float64 `json:"lon"`
+	Country   string  `json:"country,omitempty"`
+	Region    string  `json:"region,omitempty"`
 }
 
 // LocationDetails represents a function that obtains geolocation from a given IP.
